@@ -12,3 +12,9 @@ When implementing a new feature or fixing a bug, please create a new pull reques
 1. [Install Docker](https://docs.docker.com/get-docker/)
 2. [Install Docker Compose](https://docs.docker.com/compose/install/)
 3. Run `docker-compose up`. 
+4. Open another terminal
+5. Run `curl http://localhost:3000/api/ping`
+6. Open http://localhost:3001/
+7. choose register
+8. make an account
+9. Run `docker exec` to run codes on container
