@@ -18,3 +18,4 @@ When implementing a new feature or fixing a bug, please create a new pull reques
 7. choose register
 8. make an account
 9. Run `docker exec` to run codes on container
+10. 
