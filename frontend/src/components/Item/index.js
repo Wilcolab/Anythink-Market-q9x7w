@@ -4,6 +4,7 @@ import React from "react";
 import agent from "../../agent";
 import { connect } from "react-redux";
 import marked from "marked";
+import placeholder from "../../imgs/placeholder.png"
 import {
   ITEM_PAGE_LOADED,
   ITEM_PAGE_UNLOADED,
@@ -33,11 +34,14 @@ class Item extends React.Component {
     this.props.onUnload();
   }
 
+
   render() {
     if (!this.props.item) {
       return null;
     }
-
+    if (this.props.item.image === "") {
+      this.props.item.image = placeholder
+    }
     const markup = {
       __html: marked(this.props.item.description, { sanitize: true }),
     };
