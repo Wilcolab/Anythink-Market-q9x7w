@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import agent from "../agent";
 import { connect } from "react-redux";
+import placeholder from "../imgs/placeholder.png"
 import { ITEM_FAVORITED, ITEM_UNFAVORITED } from "../constants/actionTypes";
 
 const mapDispatchToProps = (dispatch) => ({
@@ -19,6 +20,9 @@ const mapDispatchToProps = (dispatch) => ({
 
 const ItemPreview = (props) => {
   const item = props.item;
+  if (item.image === "") {
+    item.image = placeholder
+  }
 
   const handleClick = (ev) => {
     ev.preventDefault();
