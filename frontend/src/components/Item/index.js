@@ -34,7 +34,6 @@ class Item extends React.Component {
     this.props.onUnload();
   }
 
-
   render() {
     if (!this.props.item) {
       return null;
