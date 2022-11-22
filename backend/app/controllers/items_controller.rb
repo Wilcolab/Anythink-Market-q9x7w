@@ -53,7 +53,11 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user = current_user
+    # @item.image = "placeholder"
 
+    if @item.image == nil
+      @item.image = "placeholder"
+    end
     if @item.save
       sendEvent("item_created", { item: item_params })
       render :show
