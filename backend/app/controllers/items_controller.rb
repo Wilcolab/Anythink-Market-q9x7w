@@ -53,7 +53,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user = current_user
-    # @item.image = "placeholder"
 
     if @item.image == nil
       @item.image = "placeholder"
