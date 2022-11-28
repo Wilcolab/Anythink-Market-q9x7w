@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
     @items = @items.tagged_with(params[:tag]) if params[:tag].present?
     @items = @items.sellered_by(params[:seller]) if params[:seller].present?
     @items = @items.favorited_by(params[:favorited]) if params[:favorited].present?
+    @items = @items.by_title_search(params[:title]) if params[:title].present?
 
     @items_count = @items.count
 
@@ -38,6 +39,19 @@ class ItemsController < ApplicationController
       },
       items_count: @items_count
     }
+  end
+
+  def initialize_search
+    @item = Item.alphabetical
+    session[:title] ||= params[:title]
+  end
+
+  def by_title_search
+    if session[:title]
+      @item = Item.where("name LIKE ?", "%#{session[:title].titleize}%")
+    else
+      @item = Item.all
+    end
   end
 
   def feed
