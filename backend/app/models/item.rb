@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   has_many :comments, dependent: :destroy
 
 
-  scope :title_search, ->(title) { where(title: Item.where("name LIKE ?", "%#{params[:title]}%")) }
+  scope :title, ->(title) { where(title: Item.where(title: title)) }
   scope :sellered_by, ->(username) { where(user: User.where(username: username)) }
   scope :favorited_by, ->(username) { joins(:favorites).where(favorites: { user: User.where(username: username) }) }
 
