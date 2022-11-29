@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
     @items = @items.tagged_with(params[:tag]) if params[:tag].present?
     @items = @items.sellered_by(params[:seller]) if params[:seller].present?
     @items = @items.favorited_by(params[:favorited]) if params[:favorited].present?
-    @items = Item.where("name LIKE ?", "%#{params[:title]}%") if params[:title].present?
+    @items = @items.title_by(params[:title]) if params[:title].present?
 
     @items_count = @items.count
 
