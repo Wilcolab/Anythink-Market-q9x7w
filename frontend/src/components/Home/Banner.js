@@ -4,16 +4,15 @@ import agent from "../../agent";
 
 const Banner = (props) => {
   const onSearchChange = (e) => {
-    let searchTerm = e.target.value.length
+    let searchTerm = e.target.value.length;
     if (searchTerm >= 3) {
       props.onSearch(
-        e.target.value, (page) =>
-        agent.Items.byTitle(e.target.value),
+        e.target.value,
+        (page) => agent.Items.byTitle(e.target.value),
         agent.Items.byTitle(e.target.value)
-      )
+      );
     }
   };
-  console.log("outside", props.onSearch)
   return (
     <div className="banner text-white">
       <div className="container p-4 text-center">
@@ -22,7 +21,14 @@ const Banner = (props) => {
           <span>A place to </span>
           <span id="get-part">get</span>
           <form>
-            <input id="search-box" type="text" name="title" placeholder="What is it that you truly desire?" style={{ width: '16rem' }} onChange={onSearchChange} />
+            <input
+              id="search-box"
+              type="text"
+              name="title"
+              placeholder="What is it that you truly desire?"
+              style={{ width: "16rem" }}
+              onChange={onSearchChange}
+            />
           </form>
           <span> the cool stuff.</span>
         </div>
