@@ -74,7 +74,7 @@ const MainView = (props) => {
     return (
       <div className="container text-center">
         <p className="py-4" id="empty">
-          No items found for "{props.title}".
+          No items found for "{props.title}"
         </p>
       </div>
     );
