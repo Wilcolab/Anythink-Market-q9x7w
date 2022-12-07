@@ -8,7 +8,7 @@ const Banner = (props) => {
     if (searchTerm >= 3) {
       props.onSearch(
         e.target.value,
-        () => agent.Items.byTitle(e.target.value),
+        (page) => agent.Items.byTitle(e.target.value),
         agent.Items.byTitle(e.target.value)
       );
     }
