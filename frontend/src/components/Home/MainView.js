@@ -70,6 +70,15 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const MainView = (props) => {
+  if (props.noResults) {
+    return (
+      <div className="container text-center">
+        <p className="py-4" id="empty">
+          No Items found for "{props.title}"
+        </p>
+      </div>
+    );
+  }
   return (
     <div>
       <div className="feed-toggle">
