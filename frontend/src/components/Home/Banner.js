@@ -3,7 +3,7 @@ import logo from "../../imgs/logo.png";
 import agent from "../../agent";
 
 const Banner = (props) => {
-  const [searchVis, setSearchVis] = useState(false)
+  const [searchVis, setSearchVis] = useState(false);
   const onSearchChange = (e) => {
     let searchTerm = e.target.value.length;
     if (searchTerm >= 3) {
@@ -21,9 +21,16 @@ const Banner = (props) => {
         <img src={logo} alt="banner" />
         <div>
           <span>A place to </span>
-          <span id="get-part" onClick={() => { searchVis ? setSearchVis(false) : setSearchVis(true) }}>get</span>
+          <span
+            id="get-part"
+            onClick={() => {
+              searchVis ? setSearchVis(false) : setSearchVis(true);
+            }}
+          >
+            get
+          </span>
           {searchVis && (
-            <form id="search" >
+            <form id="search">
               <input
                 id="search-box"
                 type="text"
